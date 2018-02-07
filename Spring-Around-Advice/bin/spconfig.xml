@@ -1,0 +1,23 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+			"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+			
+<beans>
+
+ <bean id="id1" class="java4s.MyImplClass" />
+ <bean id="id2" class="java4s.MyMethodAdvice" />
+ <bean id="id3" class="org.springframework.aop.framework.ProxyFactoryBean">
+  
+      <property name="proxyInterfaces" value="java4s.MyInterFace" />
+      <property name="interceptorNames" >
+      			<list>
+      			     <value>id2</value>
+      			 </list>
+       </property>
+       <property name="target">
+       		<ref bean="id1"/>       
+       </property>     
+ 
+ </bean>
+ 
+</beans>  
+  
